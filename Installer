@@ -7,5 +7,5 @@ sudo apt install python3-pip -y
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
 sudo mkdir /Marzban
 cd /Marzban
-sudo wget https://raw.githubusercontent.com/rgoogoonani/X-ui_Backup/main/Startup.py
+sudo wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/MainFiles.zip
 sudo python3 StartUp.py
