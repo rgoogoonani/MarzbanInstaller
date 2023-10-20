@@ -13,12 +13,12 @@ elif [[ -f /usr/lib/os-release ]]; then
     release=$ID
 else
     echo "Failed to check the system OS, please contact the author!" >&2
-    exit 1
+    
 fi
 enable_bbr() {
     if grep -q "net.core.default_qdisc=fq" /etc/sysctl.conf && grep -q "net.ipv4.tcp_congestion_control=bbr" /etc/sysctl.conf; then
         echo -e "${green}BBR is already enabled!${plain}"
-        exit 0
+        
     fi
 
     # Check the OS and install necessary packages
@@ -34,7 +34,7 @@ enable_bbr() {
             ;;
         *)
             echo -e "${red}Unsupported operating system. Please check the script and install the necessary packages manually.${plain}\n"
-            exit 1
+            
             ;;
     esac
 
