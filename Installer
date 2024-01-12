@@ -1,9 +1,9 @@
-sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf
-sudo apt update -y
-sudo apt upgrade -y
-sudo apt install unzip -y
-sudo apt install python3.9 -y
-sudo apt install python3-pip -y
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+apt update -y
+apt upgrade -y
+apt install unzip -y
+apt install python3.9 -y
+apt install python3-pip -y
 
 if [[ -f /etc/os-release ]]; then
     source /etc/os-release
@@ -56,8 +56,8 @@ enable_bbr() {
 enable_bbr
 
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
-sudo mkdir /Marzban
+mkdir /Marzban
 cd /Marzban
-sudo wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/MainFiles.zip
-sudo wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/StartUp.py
-sudo python3 StartUp.py
+wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/MainFiles.zip
+wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/StartUp.py
+python3 StartUp.py
