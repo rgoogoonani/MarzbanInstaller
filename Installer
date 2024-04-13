@@ -55,7 +55,7 @@ enable_bbr() {
 
 enable_bbr
 
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+sudo bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 1.8.4
 sudo mkdir /Marzban
 cd /Marzban
 sudo wget https://raw.githubusercontent.com/rgoogoonani/MarzbanInstaller/main/MainFiles.zip
