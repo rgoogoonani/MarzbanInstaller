@@ -1,5 +1,6 @@
 import os
 import subprocess
+import  pathlib, urllib.request, urllib.error, json
 
 def getCommandOutput(consoleCommand, consoleOutputEncoding="utf-8", timeout=2000):
     isRunCmdOk = False
@@ -24,7 +25,15 @@ with open("/Marzban/"+Mname+"/.env","w") as f:
     f.writelines('UVICORN_PORT = '+Port+'\nSUDO_USERNAME = "'+UserName+'"\nSUDO_PASSWORD = "'+PassWord+'"')
     f.close()
 getCommandOutput("cd "+Mname,"utf-8")
-getCommandOutput('sudo echo "nameserver 178.22.122.100" > /etc/resolv.conf',"utf-8")
+IP_SHECAN = "185.51.200.2"
+try:
+    res = urllib.request.urlopen(f'https://ipinfo.io/json').read().decode('utf8')
+    res = json.loads(res)
+    if res["country"] == "IR": IP_SHECAN = "185.51.200.2"
+    else: IP_SHECAN = "1.1.1.1"
+except urllib.error.HTTPError:
+    IP_SHECAN = "185.51.200.2"
+getCommandOutput('sudo echo "nameserver '+IP_SHECAN+'" > /etc/resolv.conf',"utf-8")
 getCommandOutput("sudo pip3 install -r "+Mname+"/requirements.txt","utf-8")
 getCommandOutput("sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL")
 getCommandOutput("sudo pip3 install pyopenssl --upgrade")
