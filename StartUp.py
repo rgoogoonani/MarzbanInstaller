@@ -26,6 +26,8 @@ with open("/Marzban/"+Mname+"/.env","w") as f:
 getCommandOutput("cd "+Mname,"utf-8")
 getCommandOutput('sudo echo "nameserver 178.22.122.100" > /etc/resolv.conf',"utf-8")
 getCommandOutput("sudo pip3 install -r "+Mname+"/requirements.txt","utf-8")
+getCommandOutput("sudo rm -rf /usr/lib/python3/dist-packages/OpenSSL")
+getCommandOutput("sudo pip3 install pyopenssl --upgrade")
 getCommandOutput('sudo echo "nameserver 1.1.1.1" > /etc/resolv.conf',"utf-8")
 getCommandOutput("cd "+Mname+" && sudo alembic upgrade head","utf-8")
 
